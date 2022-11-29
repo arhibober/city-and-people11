@@ -1,0 +1,37 @@
+
+# BEGIN WordPress
+# Директиви (рядки) між `BEGIN WordPress` і `END WordPress`
+# створені автоматично і підлягають змінам тільки через фільтри WordPress.
+# Зміни зроблені вручну між цими маркерами будуть перезаписані.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /city-and-people11/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /city-and-people11/index.php [L]
+Header add Access-Control-Allow-Origin *
+Header add Access-Control-Allow-Origin http://localhost/city-and-people11
+Header add Access-Control-Allow-Origin http://www.localhost/city-and-people11
+</IfModule>
+
+# END WordPress
+# Apache config
+<FilesMatch ".(eot|ttf|otf|woff)">
+ Header set Access-Control-Allow-Origin "*"
+ Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+</FilesMatch>
+<IfModule mod_headers.c>
+   <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|ico|js|json|html|pdf)$">
+     Header set Access-Control-Allow-Origin "<customer_origin_domain>"
+     Header set Access-Control-Allow-Headers "X-Requested-With"
+	 Header set Access-Control-Allow-Origin *
+   </FilesMatch>
+</IfModule>
+<FilesMatch "\.(ttf|otf|eot|woff|woff2|js)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+	Header set Access-Control-Allow-Headers "Accept, X-Requested-With"
+    </IfModule>
+</FilesMatch>

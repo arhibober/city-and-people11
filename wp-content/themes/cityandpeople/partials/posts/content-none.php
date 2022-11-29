@@ -1,0 +1,1 @@
+<h1 class='entry-title mt-4 mb-3'><?php _e('Nothing found'); ?></h1>
