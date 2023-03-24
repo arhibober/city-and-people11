@@ -1,0 +1,315 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: City-and-people 1.1\n"
+"POT-Creation-Date: 2022-04-30 11:50+0300\n"
+"PO-Revision-Date: 2022-04-30 13:18+0300\n"
+"Last-Translator: \n"
+"Language-Team: arhibober\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;esc_attr__;esc_attr_e;esc_html__;"
+"esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:18
+msgid "Page Not Found"
+msgstr "Сторінка не знайдена"
+
+#: 404.php:32
+msgid "The page you're looking for could not be found"
+msgstr "Сторінка, яку Ви запитали, не може бути знайдена"
+
+#: 404.php:34
+msgid "Pages"
+msgstr "Сторінки"
+
+#: 404.php:39
+msgid "Pages by Categories"
+msgstr "Сторінки по категоріям"
+
+#: archive.php:7
+#, php-format
+msgid "Year: %s"
+msgstr "Рік %s"
+
+#: archive.php:36 index.php:19 search.php:36
+msgid "&larr; Older"
+msgstr "&larr; Старіше"
+
+#: archive.php:39 index.php:23 search.php:40
+msgid "Newer &rarr;"
+msgstr "Новіше &rarr;"
+
+#: archive_city_object.php:60 city_object.php:60 page.php:55 single.php:57
+#: single.php:335
+msgid "Pages:"
+msgstr "Сторінки:"
+
+#: archive_city_object.php:116
+msgid "The oldest date"
+msgstr "Найстаріша дата"
+
+#: archive_city_object.php:117
+msgid "The newsest date"
+msgstr "Найновіша дата"
+
+#: archive_city_object.php:138
+msgid "Object categories:"
+msgstr "Категорії об'єкту:"
+
+#: archive_city_object.php:153
+msgid "Apply filter"
+msgstr "Застосувати фільтр"
+
+#: assets/mail/contact_me.php:9
+msgid "No arguments Provided!"
+msgstr "Нема додаваємих аргументів!"
+
+#: assets/mail/contact_me.php:19
+msgid "yourname@yourdomain.com"
+msgstr "вашеімя@вашдомін.com"
+
+#: assets/mail/contact_me.php:21
+msgid ""
+"You have received a new message from your website contact form.\n"
+"\n"
+msgstr ""
+"Ви отримали нове повыдомлення з контактноъ форми Вашего веб-сайту.\n"
+"\n"
+
+#: assets/mail/contact_me.php:22
+msgid "From: noreply@yourdomain.com\n"
+msgstr "З: немавыдповіді@вашдомін.com\n"
+
+#: blocks/slider/slider.php:34
+msgid "Please add some slides."
+msgstr "Будь ласка, додадіть будь-які слайди."
+
+#: city_object.php:91
+msgid "Ключові дати"
+msgstr ""
+
+#: city_object.php:124 single.php:140
+msgid "Similar objects"
+msgstr "Схожі об'єкти"
+
+#: city_object.php:190 single.php:206 single.php:371
+msgid "Posted by"
+msgstr "Опубліковано"
+
+#: city_object.php:222 single.php:238
+msgid "Map"
+msgstr "Мапа"
+
+#: city_object.php:249 single.php:265
+msgid "Footnotes"
+msgstr "Виноски"
+
+#: city_object.php:256 last_posts.php:2 single.php:272
+msgid "See also"
+msgstr "Дивись також"
+
+#: city_object.php:171 single.php:187
+msgid "Similar in date objects"
+msgstr "Об'єкти, близьки за датою"
+
+#: comments.php:13
+msgid "Name"
+msgstr "Ім'я"
+
+#: comments.php:18
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: comments.php:23
+msgid "Website"
+msgstr "Веб-сайт"
+
+#: comments.php:28
+msgid "Submit Comment"
+msgstr "Підтвердить коментар"
+
+#: comments.php:29
+msgid "<h5 class=\"card-header\">Leave a Comment</span>:"
+msgstr "<h5 class=\"card-header\">Залишить коментар</span>:"
+
+#: comments.php:41
+msgid "Comments"
+msgstr "Коментарі"
+
+#: includes/acf-fields.php:5
+msgid "high-school-fields"
+msgstr ""
+
+#: includes/acf-fields.php:6
+msgid "High School Fields"
+msgstr ""
+
+#: includes/core/Cpt_Gutenberg_Support.php:65
+#: includes/core/Cpt_Gutenberg_Support.php:66
+msgid "City Object"
+msgstr "Міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:123
+#: includes/core/Custom_Post_Types.php:124
+msgid "City object"
+msgstr "Міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:125
+msgid "Add city object"
+msgstr "Додадіть міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:126
+msgid "Add new city object"
+msgstr "Додадіть новий міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:127
+msgid "Edit city object"
+msgstr "Відредагуйте міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:128
+msgid "New city object"
+msgstr "Додадіть новий міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:129
+msgid "All city objects"
+msgstr "Усі міські об'єкти"
+
+#: includes/core/Custom_Post_Types.php:130
+msgid "View city object"
+msgstr "Переглядіть міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:131
+msgid "Search city objects"
+msgstr "Знайдіть міський об'єкт"
+
+#: includes/core/Custom_Post_Types.php:132
+msgid "City objects not found."
+msgstr "Міський об'єкт не знайден."
+
+#: includes/core/Custom_Post_Types.php:133
+msgid "City objects not found in trash."
+msgstr "Міський об'єкт не знайден у кошиці."
+
+#: includes/core/Custom_Post_Types.php:134
+msgid "City objects"
+msgstr "Міський об'єкт"
+
+#: includes/core/Custom_Taxonomies.php:14
+msgid "Search City Object Taxonomy"
+msgstr "Знайдіть такономію міського об'єкту"
+
+#: includes/core/Custom_Taxonomies.php:15
+msgid "All City Object Taxonomies"
+msgstr "Усі таксономії міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:16
+msgid "Parent City Object Taxonomy"
+msgstr "Батьківська таксономія міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:17
+msgid "Parent City Object Taxonomy:"
+msgstr "Батьківська таксономія міських об'єктів:"
+
+#: includes/core/Custom_Taxonomies.php:18
+msgid "Edit City Object Taxonomy"
+msgstr "Відредагуйте таксономію міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:19
+msgid "Update City Object Taxonomy"
+msgstr "Оновіть таксономію міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:20
+msgid "Add New City Object Taxonomy"
+msgstr "Додайте нову таксономію міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:21
+msgid "New City Object Taxonomy"
+msgstr "Нова таксономія міських об'єктів"
+
+#: includes/core/Custom_Taxonomies.php:22
+msgid "City Object Taxonomy"
+msgstr "Таксономія міських об'єктів"
+
+#: includes/core/My_Slider.php:22
+msgid "Slider"
+msgstr "Слайдер"
+
+#: includes/core/My_Slider.php:23
+msgid "A custom slider block."
+msgstr "Блок слайдера за замовчуваням."
+
+#: includes/core/Setup.php:10
+msgid "Primary Menu"
+msgstr "Основне меню"
+
+#: includes/core/Widgets.php:10
+msgid "Cityandpeople first Sidebar"
+msgstr "Перший сайдбар теми \"cityandpeople\""
+
+#: includes/core/Widgets.php:12
+msgid "Cityandpeople first Sidebar for something."
+msgstr "Перший відкритий сайдбар теми \"cityandpeople\"."
+
+#: includes/core/Widgets.php:22
+msgid "Cityandpeople second Sidebar for something."
+msgstr "Другий відкритий сайдбар теми \"cityandpeople\"."
+
+#: partials/posts/content-excerpt.php:12
+msgid "Read More &rarr;"
+msgstr "Далі &rarr;"
+
+#: partials/posts/content-excerpt.php:15
+msgid "Post category:"
+msgstr "Рубріка:"
+
+#: partials/posts/content-excerpt.php:16
+msgid "Posted on"
+msgstr "Опубліковано"
+
+#: partials/posts/content-excerpt.php:16 single.php:30 single.php:310
+msgid "by"
+msgstr "користувачем"
+
+#: partials/posts/content-excerpt.php:18
+msgid "Comments: "
+msgstr "Коментарі: "
+
+#: partials/posts/content-none.php:1
+msgid "Nothing found"
+msgstr "Нічого не знайдено"
+
+#: partials/posts/content-none.php:2
+msgid "Nothing found, please use the search."
+msgstr "Нічого не знайдено, можете скористатися пошуком."
+
+#: search.php:6
+msgid "Search Results for:"
+msgstr "Результати пошуку для:"
+
+#: search.php:19
+msgid "What are you searhing for today?"
+msgstr "Що ви зараз хочете знайти?"
+
+#: searchform.php:5 searchform.php:10 searchform.php:12
+msgid "Search"
+msgstr "Пошук"
+
+#: single.php:82
+msgid "Key dates"
+msgstr ""
+
+#: single.php:116
+msgid "Object categories"
+msgstr "Категорія об'єкту"
+
+#: single.php:130
+msgid "Tags"
+msgstr "Теги"

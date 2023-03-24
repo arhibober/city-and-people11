@@ -1,0 +1,173 @@
+/* calendar widget */
+.widget_calendar {
+  float: left;
+}
+
+#wp-calendar {
+  width: 100%;
+}
+
+#wp-calendar caption {
+  text-align: right;
+  color: #333;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#wp-calendar thead {
+  font-size: 10px;
+}
+
+#wp-calendar thead th {
+  padding-bottom: 10px;
+}
+
+#wp-calendar tbody {
+  color: #aaa;
+}
+
+#wp-calendar tbody td {
+  background: #f5f5f5;
+  border: 1px solid #fff;
+  text-align: center;
+  padding: 8px;
+}
+
+#wp-calendar tbody td:hover {
+  background: #fff;
+}
+
+#wp-calendar tbody .pad {
+  background: none;
+}
+
+#wp-calendar tfoot #next {
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+#wp-calendar tfoot #prev {
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+ul.object-gallery li a
+{
+  display: block;
+}
+
+li.page-item {
+  margin: 5px;
+}
+
+#voices {
+  display: table;
+}
+
+.heart {
+  width: 100px;
+  background-size: 100%;
+}
+
+#voices * {
+  display: table-cell;
+}
+
+.heart-gray {
+  background-image: url("/city-and-people9/wp-content/themes/cityandpeople/images/index.png");
+  height: 60px;
+}
+
+.heart-red {
+  background-image: url("/city-and-people9/wp-content/themes/cityandpeople/images/pngtree-red-heart-icon-isolated-png-image_1726594.jpg");
+  height: 100px;
+}
+
+.object-gallery li {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+}
+
+.object-gallery li div {
+  display: table-row;
+}
+
+.object-gallery li img {
+  height: 100px;
+  width: auto;
+  margin: 10px;
+}
+
+.card-img-top {
+  height: auto;
+}
+
+.row div.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+div.h-100.card {
+  height: auto !important;
+}
+
+.col-md-8 h3 {
+  margin-bottom: 0;
+}
+
+div.container-archive {
+  margin-top: 20px;
+}
+
+body>div.container {
+  position: relative;
+  top: 30px;
+  margin-bottom: 30px;
+}
+
+a.next.page-numbers {
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+  div.container-archive {
+    margin-top: 50px;
+  }
+
+  body>div.container {
+    top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .row .col-md-4 {
+    top: 30px;
+  }
+}
+
+#object_archive .card-header,
+#object_archive .card-body,
+#object_archive h1,
+#object_archive h5,
+#object_archive p {
+  width: 100%;
+}
