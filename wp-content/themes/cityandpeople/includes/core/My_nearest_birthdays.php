@@ -44,7 +44,7 @@ class My_nearest_birthdays
 					$is_positive = false;
 				}
 				$title = $other_post->post_title;
-				$link = '/city-and-people10/' . $other_post->post_name;
+				$link = '/city-and-people11/' . $other_post->post_name;
 				echo "<a href = '" . $link . "'>" . $title . '</a> - ' . get_post_meta($other_post->ID, 'дата')[0] . '&nbsp;';
 				echo '<br/>';
 				$i++;

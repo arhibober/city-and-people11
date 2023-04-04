@@ -26,7 +26,7 @@ class Custom_Post_Types
             'public' => true, //for all users - true
             'show_ui' => true, // show in admin panel
             'has_archive' => true,
-            'menu_icon' => get_stylesheet_directory_uri() . '/img/function_icon.png', // иконка в меню
+            'menu_icon' => get_stylesheet_directory_uri() . '/img/icon.png', // иконка в меню
             'menu_position' => 20,
             'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail'),
             'taxonomies' => array('post_tag', 'city_object_taxonomy'),

@@ -118,6 +118,7 @@ li.page-item {
 	font-size: 1.5rem;
 	font-weight: 500;
 	line-height: 1.2;
+	margin-bottom: 0;
 }
 
 .card-text:last-child {
@@ -216,15 +217,14 @@ button.wp-block-search__button {
 .col-md-4 input[type="search"],
 .col-md-4 button,
 .col-md-8 h2,
-.col-md-8 hr,
 .col-md-8 #demos .owl-carousel,
 .col-md-8 button,
 .col-md-8 p,
-.col-md-8 li.page-item {
+.col-md-8 li.page-item,
+form input[type="radio"] {
 	margin-bottom: 0;
 }
 
-.col-md-8 hr,
 .col-md-8 button,
 .col-md-8 #demos .owl-carousel,
 .col-md-8 li.page-item,
@@ -237,7 +237,25 @@ button.wp-block-search__button {
 }
 
 .owl-theme .owl-nav button[class*="owl-"],
-body .owl-theme .owl-dots .owl-dot span {
+body .owl-theme .owl-dots .owl-dot span,
+.col-md-8 hr {
 	margin-top: 0;
 	margin-bottom: 0;
+}
+
+div.col-md-8.object {
+	margin-top: 30px;
+}
+
+div.col-md-4.object {
+	margin-top: 70px;
+}
+
+.row p {
+	text-align: justify;
+	line-height: 1.5;
+}
+
+.row ul {
+	line-height: 1.5;
 }

@@ -9,8 +9,9 @@
 					printf(__('Author: %s', 'striped'), '<span>' . get_the_author() . '</span>');
 				} else {
 					if (substr(strstr(substr($_SERVER["REQUEST_URI"], 1, strlen($_SERVER["REQUEST_URI"]) - 1), '/'), 0, 22) == '/city_object_taxonomy/') {
-						$taxonomies = get_the_terms(get_the_ID(), 'city_object_taxonomy');
-						printf(__('Taxonomy: %s', 'striped'), '<span>' . $taxonomies[0]->name . '</span>');
+						$taxonomy_id = get_term_by('slug', strstr(substr(strstr($_SERVER['REQUEST_URI'], '/city_object_taxonomy/'), 22, strlen(strstr($_SERVER['REQUEST_URI'], '/city_object_taxonomy/')) - 22), '/', true), 'city_object_taxonomy')->term_id;
+						$taxonomy = get_term_by('id', $taxonomy_id, 'city_object_taxonomy');
+						printf(__('Taxonomy: %s', 'striped'), '<span>' . $taxonomy->name . '</span>');
 					} else {
 						printf(__('Category: %s', 'striped'), '<span>' . get_cat_name(get_the_ID()) . '</span>');
 					}
@@ -89,7 +90,7 @@
             <form action='<?php echo site_url() ?>/wp-admin/admin-ajax.php' method='POST' id='filter'>
                 <input type='date' name='old_date' placeholder='<?php _e('The oldest date'); ?>' />
                 <input type='date' name='new_date' placeholder='<?php _e('The newsest date'); ?>' />
-				<input type='hidden' name='city_object_taxonomy' value='<?php echo $category; ?>'/>
+                <input type='hidden' name='city_object_taxonomy' value='<?php echo $category; ?>' />
                 <?php
 					$taxonomies_all = get_terms([
 						'taxonomy'     => 'city_object_taxonomy',
@@ -112,6 +113,10 @@
 					?>
                 <div id='filter_applay'></div>
                 <input type='hidden' name='action' value='myfilter' />
+                <input type='radio' name='sort' value='date_posted' checked /><?php echo _e('By date posted'); ?><br />
+                <input type='radio' name='sort' value='ABC' /><?php echo _e('By ABC'); ?><br />
+                <input type='radio' name='sort'
+                    value='date_city_object' /><?php echo _e('By date city object'); ?><br />
             </form>
         </div>
         <?php

@@ -106,7 +106,7 @@
             }
             ?>
         </div>
-
+        <?php get_sidebar(); ?>
         <!-- /.row -->
     </div>
 </div>

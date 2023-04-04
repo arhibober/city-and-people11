@@ -78,6 +78,19 @@ get_header('v2'); ?>
 					$address .= '&s1=' . $_GET['s1'];
 					$args['s1'] = $_GET['s1'];
 				}
+				switch ($_GET['sort']) {
+					case 'ABC':
+						$args['orderby'] = 'title';
+						$args['order'] = 'ASC';
+						break;
+					case 'date_city_object':
+						$args['meta_key']  = 'дата';
+						$args['orderby'] = ['meta_value' => 'DESC'];
+						break;
+					default:
+						$args['orderby'] = 'date';
+						break;
+				}
 				$args['posts_per_page'] = get_option('posts_per_page');
 				$args['offset'] = (int)(get_option('posts_per_page')) * ($_GET['page1'] - 1);
 				$query = new WP_Query($args);
@@ -107,15 +120,15 @@ get_header('v2'); ?>
 			?>
             <form action='<?php echo site_url() ?>/wp-admin/admin-ajax.php' method='POST' id='filter'>
                 <input type='date' name='old_date' placeholder='<?php _e('The oldest date'); ?>' <?php
-					if (isset($_GET['old_date'])) {
-						echo 'value="' . $_GET['old_date'] . '"';
-					}
-					?> />
+																									if (isset($_GET['old_date'])) {
+																										echo 'value="' . $_GET['old_date'] . '"';
+																									}
+																									?> />
                 <input type='date' name='new_date' placeholder='<?php _e('The newsest date'); ?>' <?php
-					if (isset($_GET['new_date'])) {
-						echo 'value="' . $_GET['new_date'] . '"';
-					}
-					?> />
+																									if (isset($_GET['new_date'])) {
+																										echo 'value="' . $_GET['new_date'] . '"';
+																									}
+																									?> />
                 <?php
 				$taxonomies_all = get_terms([
 					'taxonomy'     => 'city_object_taxonomy',
@@ -145,8 +158,7 @@ get_header('v2'); ?>
 				Hierarchical::sort_terms_hierarchicaly($taxonomies_all, $tax_hierarchies);
 				echo '<h4>';
 				_e('Object categories:');
-				echo '</h4>
-					<ul>';
+				echo '</h4>';
 				if (array_key_exists('tax_query', $args)) {
 					Hierarchical::child_list($tax_hierarchies, $args['tax_query'][0]['terms']);
 				} else {
@@ -155,6 +167,21 @@ get_header('v2'); ?>
 				?>
                 <div id='filter_applay'></div>
                 <input type='hidden' name='action' value='myfilter' />
+                <input type='radio' name='sort' value='date_posted' <?php
+																	if ($_GET['sort'] == 'date_posted') {
+																		echo ' checked';
+																	}
+																	?> /><?php echo _e('By date posted'); ?><br />
+                <input type='radio' name='sort' value='ABC' <?php
+															if ($_GET['sort'] == 'ABC') {
+																echo ' checked';
+															}
+															?> /><?php echo _e('By ABC'); ?><br />
+                <input type='radio' name='sort' value='date_city_object' <?php
+																			if ($_GET['sort'] == 'date_city_object') {
+																				echo ' checked';
+																			}
+																			?> /><?php echo _e('By city object date'); ?><br />
             </form>
         </div>
     </div>

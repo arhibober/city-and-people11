@@ -64,33 +64,53 @@
                 <!-- Slide One - Set the background image for this slide in the line below -->
 
                 <div class='carousel-item active'>
-                    <img src='<?php bloginfo('template_directory') ?>/assets/images/slide1.jpg' class='d-block w-100'
+                    <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0274.JPG' class='d-block w-100'
                         alt='...' />
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First Slide</h3>
-                        <p>This is a description for the first slide.</p>
+                        <h3>Вхід у метро Архітектора Бекетова</h3>
+                        <p>Квітень 2013</p>
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
 
                 <div class='carousel-item'>
-                    <img src='<?php bloginfo('template_directory') ?>/assets/images/slide2.jpg' class='d-block w-100'
+                    <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0275.JPG' class='d-block w-100'
                         alt='...' />
                     <div class='carousel-caption d-none d-md-block'>
-                        <h3>Second Slide</h3>
-                        <p>This is a description for the second slide.</p>
+                        <h3>Харківський Національний Університет імені Каразіна</h3>
+                        <p>Квітень 2013</p>
                     </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
 
                 <div class='carousel-item'>
-                    <img src='<?php bloginfo('template_directory') ?>/assets/images/slide3.jpg' class='d-block w-100'
+                    <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0931.JPG' class='d-block w-100'
                         alt='...' />
                     <div class='carousel-caption d-none d-md-block'>
-                        <h3>Third Slide</h3>
-                        <p>This is a description for the third slide.</p>
+                        <h3>Річка Харків у центрі міста</h3>
+                        <p>Травень 2014</p>
                     </div>
                 </div>
+                <div class='carousel-item'>
+                    <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_20210625_111030.jpg'
+                        class='d-block w-100' alt='...' />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Вулиця Політехнична</h3>
+                        <p>Червень 2021</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+
+                <div class='carousel-item'>
+                    <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_4708.JPG' class='d-block w-100'
+                        alt='...' />
+                    <div class='carousel-caption d-none d-md-block'>
+                        <h3>Покровський монастир</h3>
+                        <p>Лютий 2018</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+
             </div>
             <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
                 <span class='carousel-control-prev-icon' aria-hidden='true'></span>

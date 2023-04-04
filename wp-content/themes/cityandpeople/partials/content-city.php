@@ -32,8 +32,11 @@
     <!-- Preview Image -->
     <!-- <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""> -->
     <?php
-		if (has_post_thumbnail())
+		if (has_post_thumbnail()) {
 			the_post_thumbnail('full', ['class' => 'card-img-top']);
+		} else {
+			echo '<img src="/city-and-people11/wp-content/uploads/2022/08/IMG_0285.jpg" class="card-img-top wp-post-image" alt="" loading="lazy">';
+		}
 		?>
 
     <hr />
@@ -63,7 +66,7 @@
 		$date_symbol = substr(get_option('date_format'), 1, 2);
 		echo '<h3>';
 		_e('Key dates');
-		echo '</h3>' . get_field('дата');
+		echo '</h3>' . get_field('дата') . '<br/>';
 		// необязательно, но в некоторых случаях без этого не обойтись
 		global $post;
 
@@ -92,9 +95,6 @@
 		$taxonomies = '';
 		$taxonomies = get_the_terms(get_the_ID(), 'city_object_taxonomy');
 		if ($taxonomies != '') {
-			echo '<h3>';
-			_e('Object Categories');
-			echo '</h3>';
 			$i = 0;
 
 			// так как функция вернула массив, то логично будет прокрутить его через foreach()
@@ -165,9 +165,9 @@
 		$images = get_field('галерея_обєкту');
 		$size = 'small'; // (thumbnail, medium, large, full или произвольный размер)
 		if ($images) : ?>
-    <ul class='object-gallery'>
+    <ul class='object-gallery owl-theme city-people-gallery'>
         <?php foreach ($images as $image) : ?>
-        <li>
+        <li class='item'>
             <a href='<?php echo $image['url']; ?>'
                 alt='<?php echo get_post_meta($image['ID'], '_wp_attachment_image_alt')[0]; ?>'
                 title='<?php echo get_the_excerpt($image['ID']) ?>'>
@@ -180,15 +180,21 @@
     <?php endif;
 		if (get_post_meta($post->ID, 'виноски', true) !== '') {
 			echo '<h3>';
-			_e('Footnotes');
-			echo "</h3>
-				<a href='" . get_field('виноски')["url"] . "'>" . get_field('виноски')['title'] . '</a>';
+			_e('Sources');
+			echo '</h3>';
+			while (have_rows('виноски')) :
+				the_row();
+				echo "<a href='" . get_sub_field('виноска')['url'] . "'>" . get_sub_field('виноска')['title'] . '</a><br/>';
+			endwhile;
 		}
 		if (get_post_meta($post->ID, 'дивись_також', true) !== '') {
 			echo '<h3>';
 			_e('See also');
-			echo "</h3>
-					<a href='" . get_field('дивись_також')['url'] . "'>" . get_field('дивись_також')['title'] . '</a>';
+			echo '</h3>';
+			while (have_rows('дивись_також')) :
+				the_row();
+				echo "<a href='" . get_sub_field('url') . "'>" . get_sub_field('title') . '</a><br/>';
+			endwhile;
 		}
 		if (strstr(get_the_content(), 'map_center')) {
 			$wide = strstr(substr(strstr(get_the_content(), 'map_center'), 12, strlen(strstr(get_the_content(), "map_center")) - 12), ",", true);
@@ -202,14 +208,14 @@
 			echo '</h3>					
 				<p>';
 			_e('Choose a diapason');
-			echo "</p>
-				<form action='" . site_url() . "/wp-admin/admin-ajax.php' method='POST' id='diapason_form'>
-				<input type='range' name='diapason' id='diapason' min='0' max='30'>
-				<span id='range_value'>15</span>&nbsp;";
+			echo '</p>
+				<form action="' . site_url() . '/wp-admin/admin-ajax.php" method="POST" id="diapason_form">
+				<input type="range" name="diapason" id="diapason" min="0" max="60">
+				<span id="range_value">30</span>&nbsp;';
 			_e('km');
-			echo "<input type='hidden' name='current_id' value='" . $post->ID . "'/>
-				<input type='hidden' name='action' id='action' value='my_nearest'>
-				<div id='nearest'>";
+			echo '<input type="hidden" name="current_id" value="' . $post->ID . '"/>
+				<input type="hidden" name="action" id="action" value="my_nearest">
+				<div id="nearest">';
 			$args = array(
 				'post_type' => 'city_object',
 				'post__not_in' => array($post->ID),
@@ -250,7 +256,7 @@
 					$wide_near = strstr(substr(strstr($content, 'map_center'), 12, strlen(strstr($content, 'map_center')) - 12), ',', true);
 					$long_near = strstr(substr(strstr(strstr($content, 'map_center'), ','), 1, strlen(strstr(strstr($content, 'map_center'), ',')) - 1), '"', true);
 					$distance_near = 12742 * asin(sqrt(pow(sin(($wide_near - $wide) * pi() / 360), 2) + cos($wide_near * pi() / 180) * cos($wide * pi() / 180) * pow(sin(($long_near - $long) * pi() / 360), 2)));
-					if ($distance_near <= 15) {
+					if ($distance_near <= 30) {
 						$title = get_the_title($id);
 						$link = get_permalink($id);
 						echo "<a href = '" . $link . "'>" . $title . '</a> - ' . round($distance_near, 1) . '&nbsp;';
@@ -260,13 +266,72 @@
 					}
 				}
 				if ($i == 0) {
-					_e('There are not objects in the given distanse from given object.');
+					_e('There are not objects in the given distanse from the given object.');
 				}
 			}
 			echo '</div>
 				</form>';
-			wp_reset_postdata();
 		}
+		wp_reset_postdata();
+		echo '<h3>';
+		_e('The Nearest Objects by date');
+		echo '</h3>					
+			<p>';
+		_e('Choose a diapason');
+		echo '</p>
+			<form action="' . site_url() . '/wp-admin/admin-ajax.php" method="POST" id="diapason_date_form">
+			<input type="range" name="diapason_date" id="diapason_date" min="0" max="60">
+			<span id="range_value_date">30</span>&nbsp;';
+		_e('years');
+		echo '<input type="hidden" name="current_id_date" value="' . $post->ID . '"/>
+			<input type="hidden" name="action" id="action_date" value="my_nearest_dates">
+			<div id="nearest_dates">';
+		$other_posts = get_posts(['exclude' => $post->ID, 'post_type' => 'city_object', 'posts_per_page' => -1]);
+		uasort(
+			$other_posts,
+			function ($posts1, $posts2) use ($post) {
+				$near_date1 = strtotime(get_post_meta($posts1->ID, 'дата')[0]) - strtotime(get_post_meta($post->ID, 'дата')[0]);
+				$near_date2 = strtotime(get_post_meta($posts2->ID, 'дата')[0]) - strtotime(get_post_meta($post->ID, 'дата')[0]);
+				if ($near_date1 == $near_date2) {
+					return 0;
+				}
+				if ($near_date1 < $near_date2) {
+					return 1;
+				}
+				if ($near_date1 > $near_date2) {
+					return -1;
+				}
+			}
+		);
+		$i = 0;
+		$is_positive = true;
+		foreach ($other_posts as $other_post) {
+			$near_date = strtotime(get_post_meta($other_post->ID, 'дата')[0]) - strtotime(get_post_meta($post->ID, 'дата')[0]);
+			if (abs($near_date) <= 946728000) {
+				if (($i == 0) && ($near_date > 0)) {
+					echo "<h4>";
+					_e('The later objects');
+					echo "</h4>";
+				}
+				if (($near_date < 0) && ($is_positive)) {
+					echo "<h4>";
+					_e('The earler objects');
+					echo "</h4>";
+					$is_positive = false;
+				}
+				$title = $other_post->post_title;
+				$link = '/city-and-people11/' . $other_post->post_name;
+				echo "<a href = '" . $link . "'>" . $title . '</a> - ' . get_post_meta($other_post->ID, 'дата')[0] . '&nbsp;';
+				echo '<br/>';
+				$i++;
+			}
+		}
+		if ($i == 0) {
+			_e('There are not objects in the given age difference from the given object.');
+		}
+		echo '</div>
+			</form>';
+		wp_reset_postdata();
 		$terms = get_the_terms($post->ID, 'city_object_taxonomy');
 		$args = array();
 		$args['post_type'] = 'city_object';
@@ -375,7 +440,66 @@
 			if (get_post_meta($pid, 'дата_народження', true) !== '') {
 				echo '<h3>';
 				_e('Birthday');
-				echo '</h3>' . get_field('дата_народження');
+				echo '</h3>' . get_field('дата_народження') .
+					'<h3>';
+				_e('The Nearest People by birthday');
+				echo '</h3>					
+					<p>';
+				_e('Choose a diapason');
+				echo '</p>
+				<form action="' . site_url() . '/wp-admin/admin-ajax.php" method="POST" id="diapason_birthday_form">
+				<input type="range" name="diapason_birthday" id="diapason_birthday" min="0" max="60">
+				<span id="range_value_birthday">30</span>&nbsp;';
+				_e('years');
+				echo '<input type="hidden" name="current_id_birthday" value="' . $post->ID . '"/>
+				<input type="hidden" name="action" id="action_birhday" value="my_nearest_birthdays">
+				<div id="nearest_birthdays">';
+				$other_posts = get_posts(['exclude' => $pid, 'post_type' => 'city_object', 'posts_per_page' => -1, 'meta_key' => 'дата_народження', 'meta_value' => '', 'meta_compare' => '!=']);
+				uasort(
+					$other_posts,
+					function ($posts1, $posts2) use ($pid) {
+						$near_date1 = strtotime(get_post_meta($posts1->ID, 'дата_народження')[0]) - strtotime(get_post_meta($pid, 'дата_народження')[0]);
+						$near_date2 = strtotime(get_post_meta($posts2->ID, 'дата_народження')[0]) - strtotime(get_post_meta($pid, 'дата_народження')[0]);
+						if ($near_date1 == $near_date2) {
+							return 0;
+						}
+						if ($near_date1 < $near_date2) {
+							return 1;
+						}
+						if ($near_date1 > $near_date2) {
+							return -1;
+						}
+					}
+				);
+				$i = 0;
+				$is_positive = true;
+				foreach ($other_posts as $other_post) {
+					$near_date = strtotime(get_post_meta($other_post->ID, 'дата_народження')[0]) - strtotime(get_post_meta($pid, 'дата_народження')[0]);
+					if (abs($near_date) <= 946728000) {
+						if (($i == 0) && ($near_date > 0)) {
+							echo "<h4>";
+							_e('The janger people');
+							echo "</h4>";
+						}
+						if (($near_date < 0) && ($is_positive)) {
+							echo "<h4>";
+							_e('The older people');
+							echo "</h4>";
+							$is_positive = false;
+						}
+						$title = $other_post->post_title;
+						$link = '/city-and-1/' . $other_post->post_name;
+						echo "<a href = '" . $link . "'>" . $title . '</a> - ' . get_post_meta($other_post->ID, 'дата_народження')[0] . '&nbsp;';
+						echo '<br/>';
+						$i++;
+					}
+				}
+				if ($i == 0) {
+					_e('There are not people in the given age difference from the given human.');
+				}
+				echo '</div>
+					</form>';
+				wp_reset_postdata();
 			}
 			if (get_post_meta($pid, 'місце_народження', true) !== '') {
 				$birth_id = get_field('місце_народження', false, false);
@@ -387,7 +511,66 @@
 			if (get_post_meta($pid, 'дата_смерті', true) !== '') {
 				echo '<h3>';
 				_e('Date of Die');
-				echo '</h3>' . get_field('дата_смерті');
+				echo '</h3>' . get_field('дата_смерті') .
+					'<h3>';
+				_e('The Nearest People by die date');
+				echo '</h3>					
+					<p>';
+				_e('Choose a diapason');
+				echo '</p>
+				<form action="' . site_url() . '/wp-admin/admin-ajax.php" method="POST" id="diapason_die_form">
+				<input type="range" name="diapason_die" id="diapason_die" min="0" max="60">
+				<span id="range_value_die">30</span>&nbsp;';
+				_e('years');
+				echo '<input type="hidden" name="current_id_die" value="' . $post->ID . '"/>
+				<input type="hidden" name="action" id="action_die" value="my_nearest_die">
+				<div id="nearest_die">';
+				$other_posts = get_posts(['exclude' => $pid, 'post_type' => 'city_object', 'posts_per_page' => -1, 'meta_key' => 'дата_смерті', 'meta_value' => '', 'meta_compare' => '!=']);
+				uasort(
+					$other_posts,
+					function ($posts1, $posts2) use ($pid) {
+						$near_date1 = strtotime(get_post_meta($posts1->ID, 'дата_смерті')[0]) - strtotime(get_post_meta($pid, 'дата_смерті')[0]);
+						$near_date2 = strtotime(get_post_meta($posts2->ID, 'дата_смерті')[0]) - strtotime(get_post_meta($pid, 'дата_смерті')[0]);
+						if ($near_date1 == $near_date2) {
+							return 0;
+						}
+						if ($near_date1 < $near_date2) {
+							return 1;
+						}
+						if ($near_date1 > $near_date2) {
+							return -1;
+						}
+					}
+				);
+				$i = 0;
+				$is_positive = true;
+				foreach ($other_posts as $other_post) {
+					$near_date = strtotime(get_post_meta($other_post->ID, 'дата_смерті')[0]) - strtotime(get_post_meta($pid, 'дата_смерті')[0]);
+					if (abs($near_date) <= 946728000) {
+						if (($i == 0) && ($near_date > 0)) {
+							echo "<h4>";
+							_e('The people that died later');
+							echo "</h4>";
+						}
+						if (($near_date < 0) && ($is_positive)) {
+							echo "<h4>";
+							_e('The people that died earlier');
+							echo "</h4>";
+							$is_positive = false;
+						}
+						$title = $other_post->post_title;
+						$link = '/city-and-people11/' . $other_post->post_name;
+						echo "<a href = '" . $link . "'>" . $title . '</a> - ' . get_post_meta($other_post->ID, 'дата_смерті')[0] . '&nbsp;';
+						echo '<br/>';
+						$i++;
+					}
+				}
+				if ($i == 0) {
+					_e('There are not objects in the given die date difference from the given human.');
+				}
+				echo '</div>
+					</form>';
+				wp_reset_postdata();
 			}
 			if (get_post_meta($pid, 'місце_смерті', true) !== '') {
 
@@ -673,10 +856,7 @@
 		]);
 		$tax_hierarchies = array();
 		Hierarchical::sort_terms_hierarchicaly($taxonomies_all, $tax_hierarchies);
-		echo '<h4>';
-		_e('Object categories:');
-		echo '</h4>
-			<ul>';
+		echo '<ul>';
 		$tax_id = array();
 		foreach ($taxonomies as $taxonomy) {
 			array_push($tax_id, $taxonomy->term_id);
@@ -685,5 +865,8 @@
 		?>
         <div id='filter_applay'></div>
         <input type='hidden' name='action' value='myfilter' />
+        <input type='radio' name='sort' value='date_posted' /><?php echo _e('By date posted'); ?><br />
+        <input type='radio' name='sort' value='ABC' /><?php echo _e('By ABC'); ?><br />
+        <input type='radio' name='sort' value='date_city_object' /><?php echo _e('By city object date'); ?><br />
     </form>
 </div>

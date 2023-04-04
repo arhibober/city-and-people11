@@ -10,25 +10,24 @@
         <h4 class='card-header'><a href='<?php the_permalink() ?>'><?php the_title() ?></a></h4>
         <div class='card-footer text-muted'>
             <?php
-				if (get_post_type() == 'city_object') {
-					$taxonomies = '';
-					$taxonomies = get_the_terms(get_the_ID(), 'city_object_taxonomy');
-					if ($taxonomies != '') {
-						_e('Object Categories: ');
-						$i = 0;
+			if (get_post_type() == 'city_object') {
+				$taxonomies = '';
+				$taxonomies = get_the_terms(get_the_ID(), 'city_object_taxonomy');
+				if ($taxonomies != '') {
+					_e('Object Categories: ');
+					$i = 0;
 
-						// так как функция вернула массив, то логично будет прокрутить его через foreach()
-						foreach ($taxonomies as $taxonomy) {
-							echo '<a href="' . get_term_link($taxonomy) . '">' . $taxonomy->name . '</a>';
-							if ($i != count($taxonomies) - 1)
-								echo ', ';
-							$i++;
-						}
+					// так как функция вернула массив, то логично будет прокрутить его через foreach()
+					foreach ($taxonomies as $taxonomy) {
+						echo '<a href="' . get_term_link($taxonomy) . '">' . $taxonomy->name . '</a>';
+						if ($i != count($taxonomies) - 1)
+							echo ', ';
+						$i++;
 					}
 				}
-				else {
-					_e('Post category: ');
-				};
+			} else {
+				_e('Post category: ');
+			};
 			echo ' ';
 			the_category(' ') ?>
             <?php _e('Posted on');

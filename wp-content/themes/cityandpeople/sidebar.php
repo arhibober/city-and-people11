@@ -22,10 +22,6 @@
 		]);
 		$tax_hierarchies = array();
 		Hierarchical::sort_terms_hierarchicaly($taxonomies_all, $tax_hierarchies);
-		echo '<h4>';
-		_e('Object categories:');
-		echo '</h4>
-			<ul>';
 		Hierarchical::child_list($tax_hierarchies);
 		if (substr(strstr(substr($_SERVER["REQUEST_URI"], 1, strlen($_SERVER["REQUEST_URI"]) - 1), '/'), 0, 8) == '/author/') {
 			echo '<input type="hidden" name="author" value="' . strstr(substr(strstr($_SERVER['REQUEST_URI'], '/author/'), 8, strlen(strstr($_SERVER['REQUEST_URI'], '/author/')) - 8), '/', true) . '"/>';
@@ -39,5 +35,8 @@
 		?>
         <div id='filter_applay'></div>
         <input type='hidden' name='action' value='myfilter' />
+        <input type='radio' name='sort' value='date_posted' checked /><?php echo _e('By date posted'); ?><br />
+        <input type='radio' name='sort' value='ABC' /><?php echo _e('By ABC'); ?><br />
+        <input type='radio' name='sort' value='date_city_object' /><?php echo _e('By city object date'); ?><br />
     </form>
 </div>
