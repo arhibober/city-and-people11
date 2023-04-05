@@ -238,7 +238,7 @@ form input[type="radio"] {
 
 .owl-theme .owl-nav button[class*="owl-"],
 body .owl-theme .owl-dots .owl-dot span,
-.col-md-8 hr {
+.col-md-8 hr, h3.widget-title, a.button {
 	margin-top: 0;
 	margin-bottom: 0;
 }

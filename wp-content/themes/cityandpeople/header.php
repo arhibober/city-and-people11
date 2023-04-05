@@ -59,13 +59,15 @@
                 <li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>
                 <li data-target='#carouselExampleIndicators' data-slide-to='1'></li>
                 <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
+                <li data-target='#carouselExampleIndicators' data-slide-to='3'></li>
+                <li data-target='#carouselExampleIndicators' data-slide-to='4'></li>
             </ol>
             <div class='carousel-inner' role='listbox'>
                 <!-- Slide One - Set the background image for this slide in the line below -->
 
                 <div class='carousel-item active'>
                     <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0274.JPG' class='d-block w-100'
-                        alt='...' />
+                        alt='Вхід у метро Архітектора Бекетова' />
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Вхід у метро Архітектора Бекетова</h3>
                         <p>Квітень 2013</p>
@@ -75,7 +77,7 @@
 
                 <div class='carousel-item'>
                     <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0275.JPG' class='d-block w-100'
-                        alt='...' />
+                        alt='Харківський Національний Університет імені Каразіна' />
                     <div class='carousel-caption d-none d-md-block'>
                         <h3>Харківський Національний Університет імені Каразіна</h3>
                         <p>Квітень 2013</p>
@@ -85,7 +87,7 @@
 
                 <div class='carousel-item'>
                     <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_0931.JPG' class='d-block w-100'
-                        alt='...' />
+                        alt='Річка Харків у центрі міста' />
                     <div class='carousel-caption d-none d-md-block'>
                         <h3>Річка Харків у центрі міста</h3>
                         <p>Травень 2014</p>
@@ -93,7 +95,7 @@
                 </div>
                 <div class='carousel-item'>
                     <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_20210625_111030.jpg'
-                        class='d-block w-100' alt='...' />
+                        class='d-block w-100' alt='Вулиця Політехнична' />
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Вулиця Політехнична</h3>
                         <p>Червень 2021</p>
@@ -103,7 +105,7 @@
 
                 <div class='carousel-item'>
                     <img src='<?php bloginfo('template_directory') ?>/assets/images/IMG_4708.JPG' class='d-block w-100'
-                        alt='...' />
+                        alt='Покровський монастир' />
                     <div class='carousel-caption d-none d-md-block'>
                         <h3>Покровський монастир</h3>
                         <p>Лютий 2018</p>
