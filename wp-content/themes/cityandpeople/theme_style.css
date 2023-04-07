@@ -238,7 +238,8 @@ form input[type="radio"] {
 
 .owl-theme .owl-nav button[class*="owl-"],
 body .owl-theme .owl-dots .owl-dot span,
-.col-md-8 hr, h3.widget-title, a.button {
+.col-md-8 hr, h3.widget-title, a.button, div fieldset, .bbp-login-form div.bbp-submit-wrapper, .bbp-login-form div.bbp-username, .bbp-login-form div.bbp-password,
+.bbp-login-form .bbp-remember-me, div input[type="text"], div input[type="password"] {
 	margin-top: 0;
 	margin-bottom: 0;
 }
