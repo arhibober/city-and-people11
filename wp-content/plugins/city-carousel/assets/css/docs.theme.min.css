@@ -9653,6 +9653,7 @@ p {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 #demos .owl-carousel .item-video {
   height: 300px;
